@@ -1,0 +1,17 @@
+// fibonacci.proto
+
+syntax = "proto3";
+
+package fibonacci;
+option go_package = "github.com/hoani/fibonacci";
+
+service Fibonacci {
+    rpc AtIndex(Number) returns (Number);
+    rpc GetSequence(Number) returns (stream Number);
+    rpc SumIndicies(stream Number) returns (Number);
+    rpc StreamSequence(stream Number) returns (stream Number);
+}
+
+message Number {
+    int32 value = 1;
+}
